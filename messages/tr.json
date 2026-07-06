@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "title": "Adın",
+    "description": "Kim olduğunu ve ne yaptığını anlatan kısa bir açıklama."
+  },
+  "header": {
+    "role": "Rolün, kısa bir cümleyle."
+  },
+  "intro": {
+    "paragraphs": [
+      "Kendini kısaca tanıt — kim olduğun, neler geliştirdiğin ve nelere önem verdiğin.",
+      "İstersen ikinci bir paragraf ekle — sana nasıl ulaşılır, ne tür işlere açıksın, ya da anlatmak istediğin herhangi bir şey."
+    ]
+  },
+  "tech": {
+    "title": "Teknolojiler"
+  },
+  "projects": {
+    "title": "Projeler",
+    "subtitle": "Geliştirdiğim birkaç şey.",
+    "all": "Hepsini gör",
+    "items": []
+  },
+  "social": {
+    "title": "Sosyal"
+  },
+  "common": {
+    "back": "Ana sayfaya dön"
+  },
+  "footer": {
+    "rights": "Tüm hakları saklıdır."
+  }
+}

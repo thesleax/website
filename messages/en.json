@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "title": "Your Name",
+    "description": "A short one-line description of who you are and what you do."
+  },
+  "header": {
+    "role": "Your role, in a short sentence."
+  },
+  "intro": {
+    "paragraphs": [
+      "Write a short introduction about yourself here — who you are, what you build, and what you care about.",
+      "Add a second paragraph if you like — how to reach you, what kind of work you're open to, or anything else."
+    ]
+  },
+  "tech": {
+    "title": "Technologies"
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "A few things I've built.",
+    "all": "See all",
+    "items": []
+  },
+  "social": {
+    "title": "Social"
+  },
+  "common": {
+    "back": "Back to home"
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  }
+}

@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import { FiArrowLeft } from "react-icons/fi";
 import FuzzyText from "@/components/ui/fuzzy-text";
+import { useMounted } from "@/hooks/use-mounted";
 
 // Centered, minimal error screen in the site theme. The big code is rendered
 // with the fuzzy effect and reused for 404s and any other error.
@@ -20,9 +21,7 @@ export function ErrorView({
   action?: ReactNode;
 }) {
   const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
+  const mounted = useMounted();
 
   const color = mounted && resolvedTheme === "light" ? "#111111" : "#fafafa";
 

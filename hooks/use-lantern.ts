@@ -25,6 +25,7 @@ export function useLanternUser(userId: string): LanternState {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
+    if (!userId) return; // no id configured: nothing to subscribe to
     let ws: WebSocket | null = null;
     let heartbeat: ReturnType<typeof setInterval> | null = null;
     let reconnect: ReturnType<typeof setTimeout> | null = null;
@@ -127,5 +128,5 @@ export function useLanternUser(userId: string): LanternState {
     };
   }, [userId]);
 
-  return { user, ready };
+  return userId ? { user, ready } : { user: null, ready: true };
 }

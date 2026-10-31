@@ -241,6 +241,7 @@ export const LogoLoop = memo(
             {item.node}
           </span>
         ) : (
+          // eslint-disable-next-line @next/next/no-img-element -- logos are small and may come from any host
           <img
             src={item.src}
             srcSet={item.srcSet}

@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import Aurora from "@/components/ui/aurora";
+import { useMediaQuery, useMounted } from "@/hooks/use-mounted";
 
 // White / grayscale aurora so it fits the site's neutral palette.
 // Dark: bright whites glow over the dark background.
@@ -12,17 +12,8 @@ const LIGHT_STOPS = ["#dadada", "#c2c2c2", "#dadada"];
 
 export function AuroraBackground() {
   const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  const [reducedMotion, setReducedMotion] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setReducedMotion(mq.matches);
-    update();
-    mq.addEventListener("change", update);
-    return () => mq.removeEventListener("change", update);
-  }, []);
+  const mounted = useMounted();
+  const reducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
 
   // WebGL + theme dependent, so render only on the client after mount.
   if (!mounted) return null;

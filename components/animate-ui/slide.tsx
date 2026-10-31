@@ -3,6 +3,7 @@
 import * as React from "react";
 import { motion, type HTMLMotionProps, type Variant } from "motion/react";
 import { useIsInView, type UseIsInViewOptions } from "@/hooks/use-is-in-view";
+import { useMounted } from "@/hooks/use-mounted";
 
 export type SlideDirection = "up" | "down" | "left" | "right";
 
@@ -29,8 +30,7 @@ export function Slide({
   className,
   ...rest
 }: SlideProps) {
-  const [mounted, setMounted] = React.useState(false);
-  React.useEffect(() => setMounted(true), []);
+  const mounted = useMounted();
 
   const { ref: localRef, isInView } = useIsInView(ref as React.Ref<HTMLDivElement>, {
     inView,

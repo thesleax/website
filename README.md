@@ -34,6 +34,8 @@ Make the site your own by editing:
 
 ## Development
 
+Requires the current LTS version of [Node.js](https://nodejs.org).
+
 ```bash
 npm install
 npm run dev     # http://localhost:3008

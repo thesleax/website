@@ -11,7 +11,7 @@ export const siteConfig = {
   name: "Your Name",
   /** Production URL (used for metadata, canonical links and structured data). */
   url: "https://example.com",
-  /** Contact email address. */
+  /** Contact email: linked in the intro text and the social links. Leave empty to hide it. */
   email: "you@example.com",
   /** Avatar image shown in the header and the status hover card. */
   avatar: "/avatar.png",
@@ -41,7 +41,6 @@ export const siteConfig = {
   /** Social links shown in the footer. Leave as "#" to disable a link. */
   social: {
     github: "#",
-    email: "#",
     linkedin: "#",
     x: "#",
     discord: "#",
@@ -57,3 +56,6 @@ export const siteConfig = {
    */
   projects: [] as { image: string; href: string }[],
 } as const;
+
+/** mailto: link for `email`, or "#" (hidden) when there is none. */
+export const emailHref = siteConfig.email ? `mailto:${siteConfig.email}` : "#";

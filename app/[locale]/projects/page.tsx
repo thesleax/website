@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   return {
     title: dict.projects.title,
     description: dict.projects.subtitle,
-    alternates: { canonical: `${localeUrl(locale)}/projects` },
+    alternates: { canonical: localeUrl(locale, "/projects") },
   };
 }
 

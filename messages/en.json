@@ -29,5 +29,13 @@
   },
   "footer": {
     "rights": "All rights reserved."
+  },
+  "status": {
+    "online": "Online",
+    "idle": "Idle",
+    "dnd": "Do Not Disturb",
+    "offline": "Offline",
+    "listening": "Listening to",
+    "poweredBy": "Discord status powered by lantern.rest"
   }
 }

@@ -29,5 +29,13 @@
   },
   "footer": {
     "rights": "Tüm hakları saklıdır."
+  },
+  "status": {
+    "online": "Çevrimiçi",
+    "idle": "Boşta",
+    "dnd": "Rahatsız Etme",
+    "offline": "Çevrimdışı",
+    "listening": "Şu an dinliyor",
+    "poweredBy": "Discord durumu lantern.rest ile gösteriliyor"
   }
 }

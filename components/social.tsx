@@ -4,15 +4,17 @@ import { SectionLabel } from "@/components/section-label";
 import { siteConfig } from "@/config/site";
 import type { Dictionary } from "@/lib/i18n";
 
+// A link left as "#" in config/site.ts is not shown.
 const SOCIALS = [
   { label: "github", href: siteConfig.social.github, Icon: FiGithub },
   { label: "linkedin", href: siteConfig.social.linkedin, Icon: FiLinkedin },
   { label: "x", href: siteConfig.social.x, Icon: SiX },
   { label: "discord", href: siteConfig.social.discord, Icon: SiDiscord },
   { label: "email", href: siteConfig.social.email, Icon: FiMail },
-] as const;
+].filter((s) => s.href !== "#");
 
 export function Social({ dict }: { dict: Dictionary }) {
+  if (SOCIALS.length === 0) return null;
   return (
     <section>
       <SectionLabel>{dict.social.title}</SectionLabel>

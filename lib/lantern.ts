@@ -1,6 +1,6 @@
 export type LanternStatus = "online" | "idle" | "dnd" | "offline";
 
-export type LanternSpotify = {
+type LanternSpotify = {
   track_id: string;
   song: string;
   artist: string | string[];
@@ -49,11 +49,4 @@ export const STATUS_COLORS: Record<LanternStatus, string> = {
   idle: "#f0b232",
   dnd: "#ed4245",
   offline: "#747f8d",
-};
-
-export const STATUS_LABEL: Record<LanternStatus, { en: string; tr: string }> = {
-  online: { en: "Online", tr: "Çevrimiçi" },
-  idle: { en: "Idle", tr: "Boşta" },
-  dnd: { en: "Do Not Disturb", tr: "Rahatsız Etme" },
-  offline: { en: "Offline", tr: "Çevrimdışı" },
 };

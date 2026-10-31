@@ -4,9 +4,8 @@ import { Slides } from "@/components/animate-ui/slide";
 import { SectionLabel } from "@/components/section-label";
 import { buttonVariants } from "@/components/ui/button";
 import { ProjectCard } from "@/components/project-card";
-import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
-import { localeHref, type Dictionary, type Locale } from "@/lib/i18n";
+import { localeHref, localizedProjects, type Dictionary, type Locale } from "@/lib/i18n";
 
 export function FeaturedProjects({
   dict,
@@ -15,18 +14,14 @@ export function FeaturedProjects({
   dict: Dictionary;
   locale: Locale;
 }) {
-  const projects = siteConfig.projects.map((p, i) => ({
-    ...p,
-    ...dict.projects.items[i],
-  }));
-  const allHref = localeHref(locale).replace(/\/$/, "") + "/projects";
+  const projects = localizedProjects(dict);
 
   return (
     <section id="projects" className="scroll-mt-8">
       <div className="flex items-center justify-between gap-3">
         <SectionLabel>{dict.projects.title}</SectionLabel>
         <Link
-          href={allHref}
+          href={localeHref(locale, "/projects")}
           className={cn(
             buttonVariants({ variant: "ghost", size: "sm" }),
             "gap-1.5 text-[var(--muted-foreground)] hover:text-[var(--foreground)]",

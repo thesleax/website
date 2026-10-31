@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { getDictionary, type Locale } from "@/lib/i18n";
+import { getDictionary, localeHref, localePath, type Locale } from "@/lib/i18n";
 import { siteConfig } from "@/config/site";
+import { techStack } from "@/config/tech";
 
 const OG_IMAGE = { url: "/avatar.png", width: 420, height: 420 };
 const siteHost = new URL(siteConfig.url).host;
 
-/** Absolute URL for a locale (English at root, Turkish under /tr). */
-export function localeUrl(locale: Locale): string {
-  return locale === "tr" ? `${siteConfig.url}/tr` : siteConfig.url;
+/** Absolute URL of `path` in a locale (English at root, Turkish under /tr). */
+export function localeUrl(locale: Locale, path = ""): string {
+  return `${siteConfig.url}${localePath(locale, path)}`;
 }
 
 /** Metadata for a locale's home page (shared by both languages to avoid duplication). */
@@ -22,7 +23,7 @@ export function siteMetadata(locale: Locale): Metadata {
     authors: [{ name: siteConfig.name, url: siteConfig.url }],
     creator: siteConfig.name,
     robots: { index: true, follow: true },
-    alternates: { canonical: url, languages: { en: "/", tr: "/tr" } },
+    alternates: { canonical: url, languages: { en: localeHref("en"), tr: localeHref("tr") } },
     openGraph: {
       title: dict.meta.title,
       description: dict.meta.description,
@@ -53,6 +54,6 @@ export function personJsonLd(locale: Locale) {
     jobTitle: siteConfig.jobTitle[locale],
     description: dict.meta.description,
     sameAs: [siteConfig.social.github],
-    knowsAbout: ["Next.js", "React", "TypeScript", "TailwindCSS", "Node.js", "Web Development"],
+    knowsAbout: techStack.map((t) => t.name),
   };
 }

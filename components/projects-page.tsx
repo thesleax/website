@@ -1,19 +1,14 @@
 import Link from "next/link";
 import { FiArrowLeft } from "react-icons/fi";
-import { ThemeToggle } from "@/components/theme-toggle";
-import { LanguageToggle } from "@/components/language-toggle";
+import { SiteControls } from "@/components/site-controls";
 import { ProjectCard } from "@/components/project-card";
 import { Footer } from "@/components/footer";
 import { HtmlLang } from "@/components/html-lang";
-import { siteConfig } from "@/config/site";
-import { getDictionary, localeHref, type Locale } from "@/lib/i18n";
+import { getDictionary, localeHref, localizedProjects, type Locale } from "@/lib/i18n";
 
 export function ProjectsPage({ locale }: { locale: Locale }) {
   const dict = getDictionary(locale);
-  const projects = siteConfig.projects.map((p, i) => ({
-    ...p,
-    ...dict.projects.items[i],
-  }));
+  const projects = localizedProjects(dict);
 
   return (
     <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col px-6 py-12 sm:py-16">
@@ -26,10 +21,7 @@ export function ProjectsPage({ locale }: { locale: Locale }) {
           <FiArrowLeft className="size-4" />
           {dict.common.back}
         </Link>
-        <div className="flex items-center gap-1">
-          <LanguageToggle locale={locale} />
-          <ThemeToggle />
-        </div>
+        <SiteControls locale={locale} />
       </div>
 
       <div className="mb-8">
